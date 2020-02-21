@@ -1,2 +1,2 @@
 # Numerical_mkdv
-Numerical analysis of the perturbed Korteweg de Vries equation
+Numerical solution of the perturbed Korteweg-de Vries equation using the leap-frog method.
