@@ -8,38 +8,26 @@ Numerical analysis of the perturbed mkdv equation
 """
 
 import numpy as np
-import scipy.integrate as integrate
 import matplotlib.pyplot as plt
+plt.style.use('ggplot')
 
 
-e_1 = float(1.2)                            #epsilon_1
-e_2 = float(0.9)                            #epsilon_2
-alpha = float(4)
-a_1 = float(1)
-a_2 = float(1)
-a_3 = float(1)
-b_1 = float(0)
-b_2 = float(0)
-b_3 = float(0)
-c_1 = float(0)
-c_2 = float(0)
-c_3 = float(0)
-k_1 = float(0.75)
-k_2 = float(0.71)
-k_3 = float(0.67)
-d_1 = float(90)                             #delta
-d_2 = float(60)                             #delta
-d_3 = float(52)                             #delta
+e_1, e_2 = 1.2, 0.9                         #epsilon_1, epsilon_2
+alpha = 4.0
+a_1, a_2, a_3 = 1.0, 1.0, 1.0
+b_1, b_2, b_3 = 0.0, 0.0, 0.0
+c_1, c_2, c_3 = 0.0, 0.0, 0.0
+k_1, k_2, k_3 = 0.75, 0.71, 0.67
+d_1, d_2, d_3 = 90.0, 60.0, 52.0            #delta_1, delta_2, delta_3
 
-
-S = float(210)                              #length
-x_0 = float(-100)
-h = float(0.01)
+S = 250.0                                   #length
+x_0 = -80.0
+h = 0.01
 J = int(S/h)                                #N + 1 = J
 
-T = float(5)                                #duration 50
-t_0 = float(0)
-tau = float(0.001)
+T = 50.0                                    #duration 50
+t_0 = 35.0
+tau = 0.001
 M = int(T/tau)                              #K + 1 = M
 
 x = np.zeros((J) , dtype = float)
@@ -48,15 +36,12 @@ q = np.zeros((M , J) , dtype = float)       #q(t,x)
 p = np.zeros((M , J) , dtype = float)       #p(t,x)
 u = np.zeros((M , J) , dtype = float)       #u(t,x)
 
-#A = np.eye(J, dtype = float)
 Al = np.zeros((J) , dtype = float)          #A[j , j - 1] j = 2,...,J
 Ad = np.ones((J) , dtype = float)           #A[j , j]
 Au = np.zeros((J - 1) , dtype = float)      #A[j , j + 1]
 P = np.zeros((J) , dtype = float)
 D = np.zeros((J) , dtype = float)           #AP = D
-#L = np.eye(J, dtype = float)
 Ll = np.zeros((J) , dtype = float)          #L[j , j - 1] j = 2,...,J
-#U = np.zeros((J , J), dtype = float)       #A = LU
 Ud = np.zeros((J) , dtype = float)          #U[j , j] , Uu = Au
 Y = np.zeros((J) , dtype = float)           #Y = UP
 
@@ -163,19 +148,16 @@ plt.figure(figsize=(12, 4))
 
 plt.subplot(1, 3, 1)
 plt.plot(x,u[2,:])
-plt.grid()
 plt.xlabel('$x$')
 plt.ylabel('$u$')
 
 plt.subplot(1, 3, 2)
 plt.plot(x,u[int(M/2),:])
-plt.grid()
 plt.xlabel('$x$')
 plt.ylabel('$u$')
 
 plt.subplot(1, 3, 3)
 plt.plot(x,u[M - 1,:])
-plt.grid()
 plt.xlabel('$x$')
 plt.ylabel('$u$')
 
