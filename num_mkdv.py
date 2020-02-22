@@ -9,7 +9,7 @@ Numerical analysis of the perturbed mkdv equation
 
 import numpy as np
 import matplotlib.pyplot as plt
-plt.style.use('ggplot')
+plt.style.use('seaborn')
 
 
 e_1, e_2 = 1.2, 0.9                         #epsilon_1, epsilon_2
