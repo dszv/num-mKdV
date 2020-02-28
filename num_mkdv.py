@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Dec 2 2019
-@author: Diego S and Harold Blas
-Numerical analysis of the perturbed mKdV equation for the n-soliton solution
-"""
-
 import numpy as np
 import matplotlib.pyplot as plt
 plt.style.use('seaborn')
